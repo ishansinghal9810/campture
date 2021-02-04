@@ -1,0 +1,38 @@
+<% layout("./layout/boilerplate") %>
+
+    <div class="row">
+        <div class="col-md-6 offset-3">
+            <h1 class="text-center">Add A New Camp</h1>
+            <form action="/camps/<%=camp._id %>/?_method=PUT" method="POST">
+                <div class="mb-3">
+                    <label class="form-label" for="title">Title</label>
+                    <input class="form-control" type="text" name="camp[title]" id="title" value="<%= camp.title %>">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="location">Location</label>
+                    <input class="form-control" type="text" name="camp[location]" id="location" value="<%= camp.location %>">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="image">Image Url</label>
+                    <input class="form-control" type="text" name="camp[image]" id="image" value="<%= camp.image %>">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="price">Price</label>
+                    <div class="input-group">
+                        <span class="input-group-text" id="price-label">$</span>
+                        <input type="text" class="form-control" id="price" placeholder="0.00" aria-label="Price"
+                            name="camp[price]" value="<%= camp.price %>">
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="description">Description</label>
+                    <textarea class="form-control" type="text" name="camp[description]" id="description">
+                        <%= camp.description %>
+                    </textarea>
+                </div>
+                <button class="btn btn-info mb-3" type="submit">EDIT CAMPGROUND</button>
+            </form>
+            <a href="/camps/">Back To All Camps</a>
+
+        </div>
+    </div>
